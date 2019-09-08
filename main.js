@@ -74,7 +74,7 @@ function buyNicole() {
 
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
 	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleTotal * nicoleLPS));
-		totalLPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleLPS * nicoleTotal));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleLPS * nicoleTotal));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
