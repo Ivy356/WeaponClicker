@@ -36,17 +36,17 @@ var gunUpgrade1 = false
 function addBullets() { //function for clicking
 	bullets = bullets + clickStr;
 	//console.log(getCookie("bullets"))l;
-	document.getElementById("bullets").innerHTML = bullets.toFixed(1) + ' Bullets ';
+	document.getElementById("bullets").innerHTML = bullets.toFixed(1) + ' Bullets';
 }
 
-function buyDavid() { //function for buying more davids
-	if(points >= davidPrice) {
-		points = points - davidPrice;
-		davidTotal = davidTotal + 1;
-		davidPrice = Math.ceil(10 * 1.15**davidTotal);
-		document.getElementById("david").innerHTML = 'Buy a David for ' + davidPrice + ' Lines of code';
-		document.getElementById("davidAmmount").innerHTML = 'you have ' + davidTotal + ' Davids';
-		document.getElementById("davidProduce").innerHTML = 'Writing ' + (davidLPS * davidTotal).toFixed(1) + ' lines of code per second';
+function buyGun() { //function for buying more guns
+	if(bullets >= gunPrice) {
+		bullets = bullets - gunPrice;
+		gunTotal = gunTotal + 1;
+		gunPrice = Math.ceil(10 * 1.11**gunTotal);
+		document.getElementById("gun").innerHTML = 'Buy a Gun for ' + gunPrice + ' Bullets';
+		document.getElementById("gunAmmount").innerHTML = 'You have ' + gunTotal + ' Gun';
+		document.getElementById("gunProduce").innerHTML = 'Writing ' + (gunBPS * gunTotal).toFixed(1) + ' bullets per second';
 	}
 }
 
