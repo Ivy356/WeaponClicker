@@ -119,25 +119,25 @@ window.setInterval(function() {
 ----This section represents the Upgrades page of the javascript----
 */
 function checkUpgrades() {
-	console.log(davidredbullUpgrade);
-	if(davidTotal >= 1 && davidredbullUpgrade != true) {
-		var davidredbullElements = document.getElementsByClassName("davidRedbull");
-		for (i = 0; i < davidredbullElements.length; i++){
-			davidredbullElements[i].style.display = "inline";
+	console.log(gunUpgrade1);
+	if(gunTotal >= 1 && gunUpgrade1 != true) {
+		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
+		for (i = 0; i < gunupgradeElements.length; i++){
+			gunupgradeElements[i].style.display = "inline";
 		}
 	}
 }
 
-function davidRedBull() {
-	var davidredbullCost = 100
-	if(points >= davidredbullCost) {
-		points = points - davidredbullCost;
-		davidredbull = true;
+function gunupgrade() {
+	var gunupgradeCost = 100
+	if(bullets >= gunupgradeCost) {
+		bullets = bullets - gunupgradeCost;
+		gunupgrade = true;
 		localStorage.setItem("davidredbull", true);
-		davidLPS = davidLPS * 2;
-		var davidredbullElements = document.getElementsByClassName("davidRedbull");
-		for (i = 0; i < davidredbullElements.length; i++){
-			davidredbullElements[i].style.display = "none";
+		gunBPS = gunBPS * 2;
+		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
+		for (i = 0; i < gunupgradeElements.length; i++){
+			gunupgradeElements[i].style.display = "none";
 		}
 	}
 }
