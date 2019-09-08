@@ -70,19 +70,30 @@ function buyPowerGun() { //function for buying more guns
 }
 
 function buyRifle() {
-	if(bullets >=riflePrice) {
+	if(bullets >= riflePrice) {
 		bullets = bullets - riflePrice;
 		rifleTotal = rifleTotal + 1;
 		riflePrice = Math.ceil(1000 * 1.19**rifleTotal);
 		document.getElementById("rifle").innerHTML = 'Buy a Rifle for ' + riflePrice + ' Bullets';
-		document.getElementById("rifleAmmount").innerHTML = 'you have ' + rifleTotal + ' Rifles';
+		document.getElementById("rifleAmmount").innerHTML = 'You have ' + rifleTotal + ' Rifles';
 		document.getElementById("rifleProduce").innerHTML = 'Shooting ' + (rifleBPS * rifleTotal).toFixed(1) + ' bullets per second';
 	}
 }
 
+function buyAssaultRifle() {
+	if(bullets >= assaultriflePrice) {
+		bullets = bullets - assaultriflePrice;
+		assaultrifleTotal = assaultrifleTotal + 1;
+		assaultriflePrice = Math.ceil(15000 * 1.18**assaultrifleTotal);
+		document.getElementById("assaultrifle").innerHTML = 'Buy a Assault Rifle for ' + assaultriflePrice + ' Bullets';
+		document.getElementById("assaultrifleAmmount").innerHTML = 'You have ' + assaultrifleTotal + ' Assault Rifles';
+		document.getElementById("assaultrifleProduce").innerHTML = 'Shooting ' + (assaultrifleBPS * assaultrifleTotal).toFixed(1) + ' bullets per second';
+	}
+}
+
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
-	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS));
-		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS));
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
