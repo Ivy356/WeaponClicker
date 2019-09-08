@@ -22,6 +22,7 @@ var bullets = 0;
 var bulletstext = document.getElementById("bullets");
 var clickStr = 1;
 var clickCost = 100;
+var refreshRateVar = 100;
 var gunPrice = 10;
 var gunTotal = 0;
 var gunBPS = 1;
@@ -121,4 +122,10 @@ function clickHarder() { // Upgrade click ability
 		localStorage.setItem("clickStr", clickStr); localStorage.setItem("clickCost", clickCost);
 		document.getElementById("clickCostDisplay").innerHTML = "Current level: " + clickStr.toFixed(1) + " Cost for next level: " + clickCost.toFixed(1);
 	}
+}
+
+function refreshRate() {
+	// hey should you use the same name for functions and variables? maybe
+	refreshRateVar = parseInt(document.getElementById("refreshRate").value);
+	document.getElementById("refreshRate").value;
 }
