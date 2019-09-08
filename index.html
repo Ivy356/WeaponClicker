@@ -1,17 +1,56 @@
 <html>
-	<body>
-		<b>Number of Bullets: <span id="bullets"></span></b><br>
-		Bullets produced: <span id="bullets_produced"></span><br>
-		<button onclick="clicker.click();">Shoot!</button><br><br>
-
-		Clicker Level: <span id="clicker_level"></span><br>
-		Production: <span id="clicker_productivity"></span><br>
-		Improvement Price: <span id="clicker_price"></span><br>
-		<button onclick="clicker.upgrade();">Upgrade</button><br><br>
-
-		<hr><br>
-		<span id="weapons"></span>
-
+	<head>
 		<script src="main.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Weapon Clicker</title>
+	</head>
+	<body onload="loadSave()">
+		<div class="tabs">
+			<button class="tablinks" onclick="openTab(event, 'Main')">
+				<b>Main Page</b>
+			</button>
+			<button class="tablinks" onclick="openTab(event, 'Upgrades');checkUpgrades()">
+				<b>Upgrades</b>
+			</button>
+			<button class="tablinks" onclick="openTab(event, 'Options')">
+				<b>Options</b>
+			</button>
+		</div>
+		<div id="Main" class="tabcontent">
+			<p id="bullets">0 Bullets </p>
+			<p id="bulletspersec">0 Bullets per second</p>
+			<button id="click" onmouseup="addBullets()">Shoot!</button>
+			<br>
+			<button id="gun" onclick="buyGun()">Buy a Gun for 10 Bullets</button>
+			<p id="gunAmmount">You have 0 Guns</p>
+			<p id="gunProduce">Shooting 1 Bullet per second</p>
+			<br>
+			<button id="powergun" onclick="buyPowerGun()">Buy a Power Gun for 100 Bullets</button>
+			<p id="powergunAmmount">You have 0 Power Guns</p>
+			<p id="powergunProduce">Shooting 5 Bullets per second</p>
+			<br>
+			<button id="rifle" onclick="buyRifle()">Buy a Rifle for 1000 Bullets</button>
+			<p id="rifleAmmount">You have 0 Rifles</p>
+			<p id="rifleProduce">Shooting 25 Bullets per second</p>
+			<br>
+		</div>
+		<div id="Upgrades" class="tabcontent">
+			<div id="clickUpgrades" class="upgrades">
+				<div id="clickStrength">
+					<button id="buyClickUpgrade" class="clickStrength" onclick="clickHarder()">Increase click strength</button>
+					<p id="clickCostDisplay" class="clickStrength"></p>
+				</div>
+			</div>
+			<div id="weaponUpgrades" class="upgrades">
+				<div id="gunupgrade">
+					<button id="upgradegun" class="gunupgrade" onclick="gunupgrade()">Buy Powerful Bullets for 100 Bullets</button>
+					<p class="gunupgrade">Makes the gun have more stronger bullets having twice as many bullets per second</p>
+				</div>
+			</div>
+		</div>
+		<div id="Options" class="tabcontent">
+			<div id="mainOptions">
+			</div>
+		</div>
 	</body>
 </html>
