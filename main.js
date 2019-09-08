@@ -43,21 +43,21 @@ function buyGun() { //function for buying more guns
 	if(bullets >= gunPrice) {
 		bullets = bullets - gunPrice;
 		gunTotal = gunTotal + 1;
-		gunPrice = Math.ceil(10 * 1.11**gunTotal);
+		gunPrice = Math.ceil(10 * 1.10**gunTotal);
 		document.getElementById("gun").innerHTML = 'Buy a Gun for ' + gunPrice + ' Bullets';
 		document.getElementById("gunAmmount").innerHTML = 'You have ' + gunTotal + ' Gun';
-		document.getElementById("gunProduce").innerHTML = 'Writing ' + (gunBPS * gunTotal).toFixed(1) + ' bullets per second';
+		document.getElementById("gunProduce").innerHTML = 'Shooting ' + (gunBPS * gunTotal).toFixed(1) + ' bullets per second';
 	}
 }
 
-function buyIzzy() { //Function for buying more izzys
-	if(points >= izzyPrice) {
-		points = points - izzyPrice;
-		izzyTotal = izzyTotal + 1;
-		izzyPrice = Math.ceil(100 * 1.15**izzyTotal);
-		document.getElementById("izzy").innerHTML = 'Buy an izzy for ' + izzyPrice + ' Lines of code';
-		document.getElementById("izzyAmmount").innerHTML = 'you have ' + izzyTotal + ' Izzys';
-		document.getElementById("izzyProduce").innerHTML = 'Writing ' + (izzyLPS * izzyTotal).toFixed(1) + ' lines of code per second';
+function buyPowerGun() { //function for buying more guns
+	if(bullets >= powergunPrice) {
+		bullets = bullets - powergunPrice;
+		powergunTotal = powergunTotal + 1;
+		powergunPrice = Math.ceil(100 * 1.20**powergunTotal);
+		document.getElementById("powergun").innerHTML = 'Buy a Power Gun for ' + powergunPrice + ' Bullets';
+		document.getElementById("powergunAmmount").innerHTML = 'You have ' + powergunTotal + ' Power Guns';
+		document.getElementById("powergunProduce").innerHTML = 'Shooting ' + (powergunBPS * powergunTotal).toFixed(1) + ' bullets per second';
 	}
 }
 
@@ -65,32 +65,24 @@ function buyNicole() {
 	if(points >=nicolePrice) {
 		points = points - nicolePrice;
 		nicoleTotal = nicoleTotal + 1;
-		nicolePrice = Math.ceil(1100 * 1.15**nicoleTotal);
+		nicolePrice = Math.ceil(1100 * 1.19**nicoleTotal);
 		document.getElementById("nicole").innerHTML = 'Buy a Nicole for ' + nicolePrice + ' Lines of code';
 		document.getElementById("nicoleAmmount").innerHTML = 'you have ' + nicoleTotal + ' Nicoles';
 		document.getElementById("nicoleProduce").innerHTML = 'Writing ' + (nicoleLPS * nicoleTotal).toFixed(1) + ' Lines of code per second';
 	}
 }
 
-window.setInterval(function() { //Adds together all the Lines of Code and then updates the elements in the HTML
-	  points = (points + (davidTotal * davidLPS) + (izzyTotal * izzyLPS) + (nicoleTotal * nicoleLPS));
-		totalLPS = ((davidTotal * davidLPS) + (izzyTotal * izzyLPS) + (nicoleLPS * nicoleTotal));
-		document.getElementById("codepersec").innerHTML = totalLPS.toFixed(1) + ' Lines per second'
-		document.getElementById("points").innerHTML = points.toFixed(1) + ' Lines of code';
-		document.cookie = "points=" + points.toFixed(1);
+window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleTotal * nicoleLPS));
+		totalLPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleLPS * nicoleTotal));
+		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
+		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
+		document.cookie = "bullets=" + bullets.toFixed(1);
 }, 1000); // dont change this to anything other than 1000 lol
 
 window.setInterval(function() {
-	document.getElementById("points").innerHTML = points.toFixed(1) + ' Lines of code';
+	document.getElementById("bullets").innerHTML = bullets.toFixed(1) + ' Bullets';
 }, refreshRateVar);
-
-window.setInterval(function() { //Saves game data every 15 seconds
-	localStorage.setItem("linesofcode", points);
-	localStorage.setItem("davids", davidTotal);
-	localStorage.setItem("izzys", izzyTotal);
-	localStorage.setItem("nicoles", nicoleTotal);
-	console.log("Game Saved");
-}, 15000);
 
 
 /*
