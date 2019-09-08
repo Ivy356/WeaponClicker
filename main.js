@@ -32,7 +32,14 @@ var powergunBPS = 5;
 var riflePrice = 1000;
 var rifleTotal = 0;
 var rifleBPS = 25;
-var gunUpgrade1 = false
+var assaultriflePrice = 15000;
+var assaultrifleTotal = 0;
+var assaultrifleBPS = 150;
+var smgPrice = 250000;
+var smgTotal = 0;
+var smgBPS = 1000;
+var gunUpgrade1 = false;
+var gunUpgrade2 = false
 	
 function addBullets() { //function for clicking
 	bullets = bullets + clickStr;
