@@ -45,7 +45,7 @@ function buyGun() { //function for buying more guns
 		gunTotal = gunTotal + 1;
 		gunPrice = Math.ceil(10 * 1.10**gunTotal);
 		document.getElementById("gun").innerHTML = 'Buy a Gun for ' + gunPrice + ' Bullets';
-		document.getElementById("gunAmmount").innerHTML = 'You have ' + gunTotal + ' Gun';
+		document.getElementById("gunAmmount").innerHTML = 'You have ' + gunTotal + ' Guns';
 		document.getElementById("gunProduce").innerHTML = 'Shooting ' + (gunBPS * gunTotal).toFixed(1) + ' bullets per second';
 	}
 }
@@ -61,20 +61,20 @@ function buyPowerGun() { //function for buying more guns
 	}
 }
 
-function buyNicole() {
-	if(points >=nicolePrice) {
-		points = points - nicolePrice;
-		nicoleTotal = nicoleTotal + 1;
-		nicolePrice = Math.ceil(1100 * 1.19**nicoleTotal);
-		document.getElementById("nicole").innerHTML = 'Buy a Nicole for ' + nicolePrice + ' Lines of code';
-		document.getElementById("nicoleAmmount").innerHTML = 'you have ' + nicoleTotal + ' Nicoles';
-		document.getElementById("nicoleProduce").innerHTML = 'Writing ' + (nicoleLPS * nicoleTotal).toFixed(1) + ' Lines of code per second';
+function buyRifle() {
+	if(bullets >=riflePrice) {
+		bullets = bullets - riflePrice;
+		rifleTotal = rifleTotal + 1;
+		riflePrice = Math.ceil(1000 * 1.19**rifleTotal);
+		document.getElementById("rifle").innerHTML = 'Buy a Rifle for ' + riflePrice + ' Bullets';
+		document.getElementById("rifleAmmount").innerHTML = 'you have ' + rifleTotal + ' Rifles';
+		document.getElementById("rifleProduce").innerHTML = 'Shooting ' + (rifleBPS * rifleTotal).toFixed(1) + ' bullets per second';
 	}
 }
 
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
-	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleTotal * nicoleLPS));
-		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (nicoleLPS * nicoleTotal));
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
