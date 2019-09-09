@@ -166,6 +166,36 @@ function checkUpgrades() {
 	}
 }
 
+function checkUpgrades() {
+	console.log(gunupgrade4);
+	if(gunTotal >= 1 && gunupgrade4 != true) {
+		var gunupgrade4Elements = document.getElementsByClassName("gunupgrade4");
+		for (i = 0; i < gunupgrade4Elements.length; i++){
+			gunupgrade4Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade5);
+	if(gunTotal >= 1 && gunupgrade5 != true) {
+		var gunupgrade5Elements = document.getElementsByClassName("gunupgrade5");
+		for (i = 0; i < gunupgrade5Elements.length; i++){
+			gunupgrade5Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade6);
+	if(gunTotal >= 1 && gunupgrade6 != true) {
+		var gunupgrade6Elements = document.getElementsByClassName("gunupgrade6");
+		for (i = 0; i < gunupgrade6Elements.length; i++){
+			gunupgrade6Elements[i].style.display = "inline";
+		}
+	}
+}
+
 function gunupgrade() {
 	var gunupgradeCost = 100
 	if(bullets >= gunupgradeCost) {
