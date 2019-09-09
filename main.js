@@ -210,6 +210,36 @@ function checkUpgrades() {
 	}
 }
 
+function checkUpgrades() {
+	console.log(powergunupgrade2);
+	if(powergunTotal >= 1 && powergunupgrade2 != true) {
+		var powergunupgrade2Elements = document.getElementsByClassName("powergunupgrade2");
+		for (i = 0; i < powergunupgrade2Elements.length; i++){
+			powergunupgrade2Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(powergunupgrade3);
+	if(powergunTotal >= 1 && powergunupgrade3 != true) {
+		var powergunupgrade3Elements = document.getElementsByClassName("powergunupgrade3");
+		for (i = 0; i < powergunupgrade3Elements.length; i++){
+			powergunupgrade3Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(powergunupgrade4);
+	if(powergunTotal >= 1 && powergunupgrade4 != true) {
+		var powergunupgrade4Elements = document.getElementsByClassName("powergunupgrade4");
+		for (i = 0; i < powergunupgrade4Elements.length; i++){
+			powergunupgrade4Elements[i].style.display = "inline";
+		}
+	}
+}
+
 function gunupgrade() {
 	var gunupgradeCost = 100
 	if(bullets >= gunupgradeCost) {
