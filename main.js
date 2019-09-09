@@ -200,6 +200,16 @@ function checkUpgrades() {
 	}
 }
 
+function checkUpgrades() {
+	console.log(powergunupgrade);
+	if(powergunTotal >= 1 && powergunupgrade != true) {
+		var powergunupgradeElements = document.getElementsByClassName("powergunupgrade");
+		for (i = 0; i < powergunupgradeElements.length; i++){
+			powergunupgradeElements[i].style.display = "inline";
+		}
+	}
+}
+
 function gunupgrade() {
 	var gunupgradeCost = 100
 	if(bullets >= gunupgradeCost) {
