@@ -400,7 +400,7 @@ function clickHarder() { // Upgrade click ability
 		bullets = bullets - clickCost;
 		clickStr = clickStr * 2;
 		clickStr = clickStr + 1;
-		clickCost = clickCost*2.5;
+		clickCost = clickCost *1.5;
 		localStorage.setItem("clickStr", clickStr); localStorage.setItem("clickCost", clickCost);
 		document.getElementById("clickCostDisplay").innerHTML = "Current level: " + clickStr.toFixed(1) + " Cost for next level: " + clickCost.toFixed(1);
 	}
