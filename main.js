@@ -38,6 +38,9 @@ var assaultrifleBPS = 150;
 var smgPrice = 250000;
 var smgTotal = 0;
 var smgBPS = 1000;
+var shotgunPrice = 5000000;
+var shotgunTotal = 0;
+var shotgunBPS = 10000;
 var gunUpgrade1 = false;
 var gunUpgrade2 = false;
 var gunUpgrade3 = false;
@@ -106,9 +109,20 @@ function buySMG() {
 	}
 }
 
+function buyShotgun() {
+	if(bullets >= shotgunPrice) {
+		bullets = bullets - shotgunPrice;
+		shotgunTotal = shotgunTotal + 1;
+		shotgunPrice = Math.ceil(5000000 * 1.16**shotgunTotal);
+		document.getElementById("shotgun").innerHTML = 'Buy a Shotgun for ' + shotgunPrice + ' Bullets';
+		document.getElementById("shotgunAmmount").innerHTML = 'You have ' + shotgunTotal + ' Shotguns';
+		document.getElementById("shotgunProduce").innerHTML = 'Shooting ' + (shotgunBPS * shotgunTotal).toFixed(1) + ' bullets per second';
+	}
+}
+
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
-	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS));
-		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS));
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
