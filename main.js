@@ -133,11 +133,25 @@ function gunupgrade() {
 	if(bullets >= gunupgradeCost) {
 		bullets = bullets - gunupgradeCost;
 		gunupgrade = true;
-		localStorage.setItem("davidredbull", true);
+		localStorage.setItem("gunupgrade", true);
 		gunBPS = gunBPS * 2;
 		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
 		for (i = 0; i < gunupgradeElements.length; i++){
 			gunupgradeElements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade2() {
+	var gunupgrade2Cost = 1000
+	if(bullets >= gunupgrade2Cost) {
+		bullets = bullets - gunupgrade2Cost;
+		gunupgrade2 = true;
+		localStorage.setItem("gunupgrade2", true);
+		gunBPS = gunBPS * 2;
+		var gunupgrade2Elements = document.getElementsByClassName("gunupgrade2");
+		for (i = 0; i < gunupgrade2Elements.length; i++){
+			gunupgrade2Elements[i].style.display = "none";
 		}
 	}
 }
