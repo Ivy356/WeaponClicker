@@ -38,8 +38,19 @@ var assaultrifleBPS = 150;
 var smgPrice = 250000;
 var smgTotal = 0;
 var smgBPS = 1000;
+var shotgunPrice = 5000000;
+var shotgunTotal = 0;
+var shotgunBPS = 10000;
 var gunUpgrade1 = false;
-var gunUpgrade2 = false
+var gunUpgrade2 = false;
+var gunUpgrade3 = false;
+var gunUpgrade4 = false;
+var gunUpgrade5 = false;
+var gunUpgrade6 = false;
+var powergunUpgrade = false;
+var powergunUpgrade2 = false;
+var powergunUpgrade3 = false;
+var powergunUpgrade4 = false
 	
 function addBullets() { //function for clicking
 	bullets = bullets + clickStr;
@@ -102,9 +113,20 @@ function buySMG() {
 	}
 }
 
+function buyShotgun() {
+	if(bullets >= shotgunPrice) {
+		bullets = bullets - shotgunPrice;
+		shotgunTotal = shotgunTotal + 1;
+		shotgunPrice = Math.ceil(5000000 * 1.16**shotgunTotal);
+		document.getElementById("shotgun").innerHTML = 'Buy a Shotgun for ' + shotgunPrice + ' Bullets';
+		document.getElementById("shotgunAmmount").innerHTML = 'You have ' + shotgunTotal + ' Shotguns';
+		document.getElementById("shotgunProduce").innerHTML = 'Shooting ' + (shotgunBPS * shotgunTotal).toFixed(1) + ' bullets per second';
+	}
+}
+
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
-	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS));
-		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS));
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
@@ -119,11 +141,101 @@ window.setInterval(function() {
 ----This section represents the Upgrades page of the javascript----
 */
 function checkUpgrades() {
-	console.log(gunUpgrade1);
-	if(gunTotal >= 1 && gunUpgrade1 != true) {
+	console.log(gunupgrade);
+	if(gunTotal >= 1 && gunupgrade != true) {
 		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
 		for (i = 0; i < gunupgradeElements.length; i++){
 			gunupgradeElements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade2);
+	if(gunTotal >= 1 && gunupgrade2 != true) {
+		var gunupgrade2Elements = document.getElementsByClassName("gunupgrade2");
+		for (i = 0; i < gunupgrade2Elements.length; i++){
+			gunupgrade2Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade3);
+	if(gunTotal >= 1 && gunupgrade3 != true) {
+		var gunupgrade3Elements = document.getElementsByClassName("gunupgrade3");
+		for (i = 0; i < gunupgrade3Elements.length; i++){
+			gunupgrade3Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade4);
+	if(gunTotal >= 1 && gunupgrade4 != true) {
+		var gunupgrade4Elements = document.getElementsByClassName("gunupgrade4");
+		for (i = 0; i < gunupgrade4Elements.length; i++){
+			gunupgrade4Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade5);
+	if(gunTotal >= 1 && gunupgrade5 != true) {
+		var gunupgrade5Elements = document.getElementsByClassName("gunupgrade5");
+		for (i = 0; i < gunupgrade5Elements.length; i++){
+			gunupgrade5Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade6);
+	if(gunTotal >= 1 && gunupgrade6 != true) {
+		var gunupgrade6Elements = document.getElementsByClassName("gunupgrade6");
+		for (i = 0; i < gunupgrade6Elements.length; i++){
+			gunupgrade6Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(powergunupgrade);
+	if(powergunTotal >= 1 && powergunupgrade != true) {
+		var powergunupgradeElements = document.getElementsByClassName("powergunupgrade");
+		for (i = 0; i < powergunupgradeElements.length; i++){
+			powergunupgradeElements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(powergunupgrade2);
+	if(powergunTotal >= 1 && powergunupgrade2 != true) {
+		var powergunupgrade2Elements = document.getElementsByClassName("powergunupgrade2");
+		for (i = 0; i < powergunupgrade2Elements.length; i++){
+			powergunupgrade2Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(powergunupgrade3);
+	if(powergunTotal >= 1 && powergunupgrade3 != true) {
+		var powergunupgrade3Elements = document.getElementsByClassName("powergunupgrade3");
+		for (i = 0; i < powergunupgrade3Elements.length; i++){
+			powergunupgrade3Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(powergunupgrade4);
+	if(powergunTotal >= 1 && powergunupgrade4 != true) {
+		var powergunupgrade4Elements = document.getElementsByClassName("powergunupgrade4");
+		for (i = 0; i < powergunupgrade4Elements.length; i++){
+			powergunupgrade4Elements[i].style.display = "inline";
 		}
 	}
 }
@@ -156,10 +268,123 @@ function gunupgrade2() {
 	}
 }
 
+function gunupgrade3() {
+	var gunupgrade3Cost = 10000
+	if(bullets >= gunupgrade3Cost) {
+		bullets = bullets - gunupgrade3Cost;
+		gunupgrade3 = true;
+		localStorage.setItem("gunupgrade3", true);
+		gunBPS = gunBPS * 2;
+		var gunupgrade3Elements = document.getElementsByClassName("gunupgrade3");
+		for (i = 0; i < gunupgrade3Elements.length; i++){
+			gunupgrade3Elements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade4() {
+	var gunupgrade4Cost = 200000
+	if(bullets >= gunupgrade4Cost) {
+		bullets = bullets - gunupgrade4Cost;
+		gunupgrade4 = true;
+		localStorage.setItem("gunupgrade4", true);
+		gunBPS = gunBPS * 3;
+		var gunupgrade4Elements = document.getElementsByClassName("gunupgrade4");
+		for (i = 0; i < gunupgrade4Elements.length; i++){
+			gunupgrade4Elements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade5() {
+	var gunupgrade5Cost = 1000000
+	if(bullets >= gunupgrade5Cost) {
+		bullets = bullets - gunupgrade5Cost;
+		gunupgrade5 = true;
+		localStorage.setItem("gunupgrade5", true);
+		gunBPS = gunBPS * 3;
+		var gunupgrade5Elements = document.getElementsByClassName("gunupgrade5");
+		for (i = 0; i < gunupgrade5Elements.length; i++){
+			gunupgrade5Elements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade6() {
+	var gunupgrade6Cost = 25000000
+	if(bullets >= gunupgrade6Cost) {
+		bullets = bullets - gunupgrade6Cost;
+		gunupgrade6 = true;
+		localStorage.setItem("gunupgrade6", true);
+		gunBPS = gunBPS * 5;
+		var gunupgrade6Elements = document.getElementsByClassName("gunupgrade6");
+		for (i = 0; i < gunupgrade6Elements.length; i++){
+			gunupgrade6Elements[i].style.display = "none";
+		}
+	}
+}
+
+function powergunupgrade() {
+	var powergunupgradeCost = 500
+	if(bullets >= powergunupgradeCost) {
+		bullets = bullets - powergunupgradeCost;
+		powergunupgrade = true;
+		localStorage.setItem("powergunupgrade", true);
+		powergunBPS = powergunBPS * 2;
+		var powergunupgradeElements = document.getElementsByClassName("powergunupgrade");
+		for (i = 0; i < powergunupgradeElements.length; i++){
+			powergunupgradeElements[i].style.display = "none";
+		}
+	}
+}
+
+function powergunupgrade2() {
+	var powergunupgrade2Cost = 2500
+	if(bullets >= powergunupgrade2Cost) {
+		bullets = bullets - powergunupgrade2Cost;
+		powergunupgrade2 = true;
+		localStorage.setItem("powergunupgrade2", true);
+		powergunBPS = powergunBPS * 2;
+		var powergunupgrade2Elements = document.getElementsByClassName("powergunupgrade2");
+		for (i = 0; i < powergunupgrade2Elements.length; i++){
+			powergunupgrade2Elements[i].style.display = "none";
+		}
+	}
+}
+
+function powergunupgrade3() {
+	var powergunupgrade3Cost = 25000
+	if(bullets >= powergunupgrade3Cost) {
+		bullets = bullets - powergunupgrade3Cost;
+		powergunupgrade3 = true;
+		localStorage.setItem("powergunupgrade3", true);
+		powergunBPS = powergunBPS * 2;
+		var powergunupgrade3Elements = document.getElementsByClassName("powergunupgrade3");
+		for (i = 0; i < powergunupgrade3Elements.length; i++){
+			powergunupgrade3Elements[i].style.display = "none";
+		}
+	}
+}
+
+function powergunupgrade4() {
+	var powergunupgrade4Cost = 500000
+	if(bullets >= powergunupgrade4Cost) {
+		bullets = bullets - powergunupgrade4Cost;
+		powergunupgrade4 = true;
+		localStorage.setItem("powergunupgrade4", true);
+		powergunBPS = powergunBPS * 3;
+		var powergunupgrade4Elements = document.getElementsByClassName("powergunupgrade4");
+		for (i = 0; i < powergunupgrade4Elements.length; i++){
+			powergunupgrade4Elements[i].style.display = "none";
+		}
+	}
+}
+
 function clickHarder() { // Upgrade click ability
 
 	if (bullets >= clickCost) {
 		bullets = bullets - clickCost;
+		clickStr = clickStr * 2;
 		clickStr = clickStr + 1;
 		clickCost = clickCost*2.5;
 		localStorage.setItem("clickStr", clickStr); localStorage.setItem("clickCost", clickCost);
