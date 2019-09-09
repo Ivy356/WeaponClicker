@@ -208,6 +208,48 @@ function gunupgrade3() {
 	}
 }
 
+function gunupgrade4() {
+	var gunupgrade4Cost = 200000
+	if(bullets >= gunupgrade4Cost) {
+		bullets = bullets - gunupgrade4Cost;
+		gunupgrade4 = true;
+		localStorage.setItem("gunupgrade4", true);
+		gunBPS = gunBPS * 3;
+		var gunupgrade4Elements = document.getElementsByClassName("gunupgrade4");
+		for (i = 0; i < gunupgrade4Elements.length; i++){
+			gunupgrade4Elements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade5() {
+	var gunupgrade5Cost = 1000000
+	if(bullets >= gunupgrade5Cost) {
+		bullets = bullets - gunupgrade5Cost;
+		gunupgrade5 = true;
+		localStorage.setItem("gunupgrade5", true);
+		gunBPS = gunBPS * 3;
+		var gunupgrade5Elements = document.getElementsByClassName("gunupgrade5");
+		for (i = 0; i < gunupgrade5Elements.length; i++){
+			gunupgrade5Elements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade6() {
+	var gunupgrade6Cost = 25000000
+	if(bullets >= gunupgrade6Cost) {
+		bullets = bullets - gunupgrade6Cost;
+		gunupgrade6 = true;
+		localStorage.setItem("gunupgrade6", true);
+		gunBPS = gunBPS * 5;
+		var gunupgrade6Elements = document.getElementsByClassName("gunupgrade6");
+		for (i = 0; i < gunupgrade6Elements.length; i++){
+			gunupgrade6Elements[i].style.display = "none";
+		}
+	}
+}
+
 function clickHarder() { // Upgrade click ability
 
 	if (bullets >= clickCost) {
