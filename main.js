@@ -41,6 +41,9 @@ var smgBPS = 1000;
 var shotgunPrice = 5000000;
 var shotgunTotal = 0;
 var shotgunBPS = 10000;
+var scarPrice = 75000000;
+var scarTotal = 0;
+var scarBPS = 200000;
 var gunUpgrade1 = false;
 var gunUpgrade2 = false;
 var gunUpgrade3 = false;
@@ -124,9 +127,20 @@ function buyShotgun() {
 	}
 }
 
+function buySCAR() {
+	if(bullets >= scarPrice) {
+		bullets = bullets - scarPrice;
+		scarTotal = scarTotal + 1;
+		scarPrice = Math.ceil(75000000 * 1.15**scarTotal);
+		document.getElementById("scar").innerHTML = 'Buy an SCAR for ' + scarPrice + ' Bullets';
+		document.getElementById("scarAmmount").innerHTML = 'You have ' + scarTotal + ' SCARs';
+		document.getElementById("scarProduce").innerHTML = 'Shooting ' + (scarBPS * scarTotal).toFixed(1) + ' bullets per second';
+	}
+}
+
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
-	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS));
-		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS));
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS) + (scarTotal * scarBPS));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS) + (shotgunTotal * shotgunBPS) + (scarTotal * scarBPS));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
