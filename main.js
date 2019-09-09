@@ -326,6 +326,20 @@ function powergunupgrade3() {
 	}
 }
 
+function powergunupgrade4() {
+	var powergunupgrade4Cost = 500000
+	if(bullets >= powergunupgrade4Cost) {
+		bullets = bullets - powergunupgrade4Cost;
+		powergunupgrade4 = true;
+		localStorage.setItem("powergunupgrade4", true);
+		powergunBPS = powergunBPS * 3;
+		var powergunupgrade4Elements = document.getElementsByClassName("powergunupgrade4");
+		for (i = 0; i < powergunupgrade4Elements.length; i++){
+			powergunupgrade4Elements[i].style.display = "none";
+		}
+	}
+}
+
 function clickHarder() { // Upgrade click ability
 
 	if (bullets >= clickCost) {
