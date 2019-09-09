@@ -46,7 +46,11 @@ var gunUpgrade2 = false;
 var gunUpgrade3 = false;
 var gunUpgrade4 = false;
 var gunUpgrade5 = false;
-var gunUpgrade6 = false
+var gunUpgrade6 = false;
+var powergunUpgrade = false;
+var powergunUpgrade2 = false;
+var powergunUpgrade3 = false;
+var powergunUpgrade4 = false
 	
 function addBullets() { //function for clicking
 	bullets = bullets + clickStr;
