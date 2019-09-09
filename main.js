@@ -39,7 +39,11 @@ var smgPrice = 250000;
 var smgTotal = 0;
 var smgBPS = 1000;
 var gunUpgrade1 = false;
-var gunUpgrade2 = false
+var gunUpgrade2 = false;
+var gunUpgrade3 = false;
+var gunUpgrade4 = false;
+var gunUpgrade5 = false;
+var gunUpgrade6 = false
 	
 function addBullets() { //function for clicking
 	bullets = bullets + clickStr;
@@ -133,7 +137,7 @@ function gunupgrade() {
 	if(bullets >= gunupgradeCost) {
 		bullets = bullets - gunupgradeCost;
 		gunupgrade = true;
-		localStorage.setItem("davidredbull", true);
+		localStorage.setItem("gunupgrade", true);
 		gunBPS = gunBPS * 2;
 		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
 		for (i = 0; i < gunupgradeElements.length; i++){
@@ -144,8 +148,8 @@ function gunupgrade() {
 
 function clickHarder() { // Upgrade click ability
 
-	if (points >= clickCost) {
-		points = points - clickCost;
+	if (bullets >= clickCost) {
+		bullets = bullets - clickCost;
 		clickStr = clickStr + 1;
 		clickCost = clickCost*2.75;
 		localStorage.setItem("clickStr", clickStr); localStorage.setItem("clickCost", clickCost);
