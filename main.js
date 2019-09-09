@@ -123,11 +123,31 @@ window.setInterval(function() {
 ----This section represents the Upgrades page of the javascript----
 */
 function checkUpgrades() {
-	console.log(gunUpgrade1);
-	if(gunTotal >= 1 && gunUpgrade1 != true) {
+	console.log(gunupgrade);
+	if(gunTotal >= 1 && gunupgrade != true) {
 		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
 		for (i = 0; i < gunupgradeElements.length; i++){
 			gunupgradeElements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade2);
+	if(gunTotal >= 1 && gunupgrade2 != true) {
+		var gunupgrade2Elements = document.getElementsByClassName("gunupgrade2");
+		for (i = 0; i < gunupgrade2Elements.length; i++){
+			gunupgrade2Elements[i].style.display = "inline";
+		}
+	}
+}
+
+function checkUpgrades() {
+	console.log(gunupgrade3);
+	if(gunTotal >= 1 && gunupgrade3 != true) {
+		var gunupgrade3Elements = document.getElementsByClassName("gunupgrade3");
+		for (i = 0; i < gunupgrade3Elements.length; i++){
+			gunupgrade3Elements[i].style.display = "inline";
 		}
 	}
 }
@@ -142,6 +162,34 @@ function gunupgrade() {
 		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
 		for (i = 0; i < gunupgradeElements.length; i++){
 			gunupgradeElements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade2() {
+	var gunupgrade2Cost = 1000
+	if(bullets >= gunupgrade2Cost) {
+		bullets = bullets - gunupgrade2Cost;
+		gunupgrade2 = true;
+		localStorage.setItem("gunupgrade2", true);
+		gunBPS = gunBPS * 2;
+		var gunupgrade2Elements = document.getElementsByClassName("gunupgrade2");
+		for (i = 0; i < gunupgrade2Elements.length; i++){
+			gunupgrade2Elements[i].style.display = "none";
+		}
+	}
+}
+
+function gunupgrade3() {
+	var gunupgrade3Cost = 10000
+	if(bullets >= gunupgrade3Cost) {
+		bullets = bullets - gunupgrade3Cost;
+		gunupgrade3 = true;
+		localStorage.setItem("gunupgrade3", true);
+		gunBPS = gunBPS * 2;
+		var gunupgrade3Elements = document.getElementsByClassName("gunupgrade3");
+		for (i = 0; i < gunupgrade3Elements.length; i++){
+			gunupgrade3Elements[i].style.display = "none";
 		}
 	}
 }
