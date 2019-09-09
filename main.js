@@ -32,7 +32,14 @@ var powergunBPS = 5;
 var riflePrice = 1000;
 var rifleTotal = 0;
 var rifleBPS = 25;
-var gunUpgrade1 = false
+var assaultriflePrice = 15000;
+var assaultrifleTotal = 0;
+var assaultrifleBPS = 150;
+var smgPrice = 250000;
+var smgTotal = 0;
+var smgBPS = 1000;
+var gunUpgrade1 = false;
+var gunUpgrade2 = false
 	
 function addBullets() { //function for clicking
 	bullets = bullets + clickStr;
@@ -63,19 +70,41 @@ function buyPowerGun() { //function for buying more guns
 }
 
 function buyRifle() {
-	if(bullets >=riflePrice) {
+	if(bullets >= riflePrice) {
 		bullets = bullets - riflePrice;
 		rifleTotal = rifleTotal + 1;
 		riflePrice = Math.ceil(1000 * 1.19**rifleTotal);
 		document.getElementById("rifle").innerHTML = 'Buy a Rifle for ' + riflePrice + ' Bullets';
-		document.getElementById("rifleAmmount").innerHTML = 'you have ' + rifleTotal + ' Rifles';
+		document.getElementById("rifleAmmount").innerHTML = 'You have ' + rifleTotal + ' Rifles';
 		document.getElementById("rifleProduce").innerHTML = 'Shooting ' + (rifleBPS * rifleTotal).toFixed(1) + ' bullets per second';
 	}
 }
 
+function buyAssaultRifle() {
+	if(bullets >= assaultriflePrice) {
+		bullets = bullets - assaultriflePrice;
+		assaultrifleTotal = assaultrifleTotal + 1;
+		assaultriflePrice = Math.ceil(15000 * 1.18**assaultrifleTotal);
+		document.getElementById("assaultrifle").innerHTML = 'Buy a Assault Rifle for ' + assaultriflePrice + ' Bullets';
+		document.getElementById("assaultrifleAmmount").innerHTML = 'You have ' + assaultrifleTotal + ' Assault Rifles';
+		document.getElementById("assaultrifleProduce").innerHTML = 'Shooting ' + (assaultrifleBPS * assaultrifleTotal).toFixed(1) + ' bullets per second';
+	}
+}
+
+function buySMG() {
+	if(bullets >= smgPrice) {
+		bullets = bullets - smgPrice;
+		smgTotal = smgTotal + 1;
+		smgPrice = Math.ceil(250000 * 1.17**smgTotal);
+		document.getElementById("smg").innerHTML = 'Buy a SMG for ' + smgPrice + ' Bullets';
+		document.getElementById("smgAmmount").innerHTML = 'You have ' + smgTotal + ' SMGs';
+		document.getElementById("smgProduce").innerHTML = 'Shooting ' + (smgBPS * smgTotal).toFixed(1) + ' bullets per second';
+	}
+}
+
 window.setInterval(function() { //Adds together all the Bullets and then updates the elements in the HTML
-	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS));
-		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS));
+	  bullets = (bullets + (gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS));
+		totalBPS = ((gunTotal * gunBPS) + (powergunTotal * powergunBPS) + (rifleTotal * rifleBPS) + (assaultrifleTotal * assaultrifleBPS) + (smgTotal * smgBPS));
 		document.getElementById("bulletspersec").innerHTML = totalBPS.toFixed(1) + ' Bullets per second'
 		document.getElementById("bullets").innerHTML = points.toFixed(1) + ' Bullets';
 		document.cookie = "bullets=" + bullets.toFixed(1);
@@ -90,25 +119,25 @@ window.setInterval(function() {
 ----This section represents the Upgrades page of the javascript----
 */
 function checkUpgrades() {
-	console.log(davidredbullUpgrade);
-	if(davidTotal >= 1 && davidredbullUpgrade != true) {
-		var davidredbullElements = document.getElementsByClassName("davidRedbull");
-		for (i = 0; i < davidredbullElements.length; i++){
-			davidredbullElements[i].style.display = "inline";
+	console.log(gunUpgrade1);
+	if(gunTotal >= 1 && gunUpgrade1 != true) {
+		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
+		for (i = 0; i < gunupgradeElements.length; i++){
+			gunupgradeElements[i].style.display = "inline";
 		}
 	}
 }
 
-function davidRedBull() {
-	var davidredbullCost = 100
-	if(points >= davidredbullCost) {
-		points = points - davidredbullCost;
-		davidredbull = true;
+function gunupgrade() {
+	var gunupgradeCost = 100
+	if(bullets >= gunupgradeCost) {
+		bullets = bullets - gunupgradeCost;
+		gunupgrade = true;
 		localStorage.setItem("davidredbull", true);
-		davidLPS = davidLPS * 2;
-		var davidredbullElements = document.getElementsByClassName("davidRedbull");
-		for (i = 0; i < davidredbullElements.length; i++){
-			davidredbullElements[i].style.display = "none";
+		gunBPS = gunBPS * 2;
+		var gunupgradeElements = document.getElementsByClassName("gunupgrade");
+		for (i = 0; i < gunupgradeElements.length; i++){
+			gunupgradeElements[i].style.display = "none";
 		}
 	}
 }
