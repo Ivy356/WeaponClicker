@@ -1,28 +1,22 @@
-$scope.BulletFormat = function (labelValue) 
-                    {
-                          // 18 Zeroes for Quintillions
-                          return Math.abs(Number(labelValue)) >= 1.0e+18
-
-                               ? Math.abs(Number(labelValue)) / 1.0e+18 + "quintillion"
+function commarize(min) {
+  min = min || 1e3;
+  // Alter numbers larger than 1k
+  if (this >= min) {
+    var units = ["", "million", "billion", "trillion", "quadrillion", "quintillion"];
     
-                          // 15 Zeroes for Quadrillions
-                          return Math.abs(Number(labelValue)) >= 1.0e+15
+    var order = Math.floor(Math.log(this) / Math.log(1000));
 
-                               ? Math.abs(Number(labelValue)) / 1.0e+15 + "quadrillion"
-                               // 12 Zeroes for Trillions
-                               : Math.abs(Number(labelValue)) >= 1.0e+12
+    var unitname = units[(order - 1)];
+    var num = Math.floor(this / 1000 ** order);
+    
+    // output number remainder + unitname
+    return num + unitname
+  }
+  
+  // return formatted original number
+  return this.toLocaleString()
+}
 
-                               ? Math.abs(Number(labelValue)) / 1.0e+12 + "trillion"
-                               // 9 Zeroes for Billions
-                               : Math.abs(Number(labelValue)) >= 1.0e+9
-
-                               ? Math.abs(Number(labelValue)) / 1.0e+9 + "billion"
-
-                               : Math.abs(Number(labelValue));
-                   }
-
-  $scope.rep.won = $scope.BulletFormat($scope.rep.won);
-            $scope.outlook.rem = $scope.BulletFormat($scope.outlook.rem);
-            $scope.rep.expectedAmount = $scope.BulletFormat($scope.rep.expectedAmount);
-            $scope.rep.potential = $scope.BulletFormat($scope.rep.potential);
-            $scope.rep.quota = $scope.BulletFormat($scope.rep.quota);
+// Add method to prototype. this allows you to use this function on numbers and strings directly
+Number.prototype.commarize = commarize
+String.prototype.commarize = commarize
