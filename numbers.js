@@ -1,5 +1,5 @@
 function commarize(min) {
-  min = min || 1e3;
+  min = min || 1e6;
   // Alter numbers larger than 1k
   if (this >= min) {
     var units = ["", "million", "billion", "trillion", "quadrillion", "quintillion"];
