@@ -1,17 +1,21 @@
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
+{
+     {
+        "numbers": [
+        "",
+		" thousand",
+		" million",
+		" billion",
+		" trillion",
+		" quadrillion",
+		" quintillion"
+     }
 }
 
-//usage:
-readTextFile("/numbers.json", function(text){
-    var data = JSON.parse(text);
-    console.log(data);
-});
+    var url = "numbers.json";         
+    $.getJSON(url, function (data) {
+        $.each(data, function (numbers, model) {
+            if (model.numbers == " thousand", " million", " billion", " trillion", " quadrillion", " quintillion") {
+                console.log(model.numbers)
+            }
+        })
+    });
