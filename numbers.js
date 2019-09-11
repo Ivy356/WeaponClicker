@@ -1,22 +1,17 @@
-function commarize(min) {
-  min = min || 1e6;
-  // Alter numbers larger than 1k
-  if (this >= min) {
-    var units = ["", "million", "billion", "trillion", "quadrillion", "quintillion"];
-    
-    var order = Math.floor(Math.log(this) / Math.log(1000));
-
-    var unitname = units[(order - 1)];
-    var num = Math.floor(this / 1000 ** order);
-    
-    // output number remainder + unitname
-    return num + unitname
-  }
-  
-  // return formatted original number
-  return this.toLocaleString()
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
 }
 
-// Add method to prototype. this allows you to use this function on numbers and strings directly
-Number.prototype.commarize = commarize
-String.prototype.commarize = commarize
+//usage:
+readTextFile("/numbers.json", function(text){
+    var data = JSON.parse(text);
+    console.log(data);
+});
