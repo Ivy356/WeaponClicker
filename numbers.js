@@ -2,12 +2,12 @@
      {
         "numbers": [
         "",
-		" thousand",
-		" million",
-		" billion",
-		" trillion",
-		" quadrillion",
-		" quintillion"
+	" thousand",
+	" million",
+	" billion",
+	" trillion",
+	" quadrillion",
+	" quintillion"
      }
 }
 
